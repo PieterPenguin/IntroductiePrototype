@@ -67,6 +67,7 @@ function checkAnswer(clickedAnswerElement) {
     if (currentQuestion.answered) {
         return
     }
+    currentQuestion.answered = true;
 
     clickedAnswerElement.classList.remove('bg-slate-300', 'text-black', 'hover:bg-slate-600', 'hover:text-white', 'transition');
 
@@ -79,9 +80,6 @@ function checkAnswer(clickedAnswerElement) {
     currentQuestionCorrectButton.classList.add('bg-green-700', 'text-white');
 
     // Maybe add a soundbite for added feedback?
-
-
-    currentQuestion.answered = true;
 
     // Show button to next question
 }
