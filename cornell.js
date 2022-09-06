@@ -18,8 +18,6 @@ let questions = [
     }
 ];
 
-
-
 /** HTML elements **/
 let questionElement = document.getElementById('question');
 let answerFields = [
@@ -66,12 +64,24 @@ function setQuestion() {
 }
 
 function checkAnswer(clickedAnswerElement) {
-    if (clickedAnswerElement.innerText === currentQuestion.answer) {
-        // Set clicked box to green
-    } else {
-        // Set clicked box to red
-        // Correct answer to green
+    if (currentQuestion.answered) {
+        return
     }
+
+    clickedAnswerElement.classList.remove('bg-slate-300', 'text-black', 'hover:bg-slate-600', 'hover:text-white', 'transition');
+
+    if (clickedAnswerElement.innerText !== currentQuestion.answer) {
+        clickedAnswerElement.classList.add('bg-red-700', 'text-white');
+    }
+
+    // Correct answer to green
+    currentQuestionCorrectButton.classList.remove('bg-slate-300', 'text-black', 'hover:bg-slate-600', 'hover:text-white', 'transition');
+    currentQuestionCorrectButton.classList.add('bg-green-700', 'text-white');
+
+    // Maybe add a soundbite for added feedback?
+
+
+    currentQuestion.answered = true;
 
     // Show button to next question
 }
