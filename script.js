@@ -2,21 +2,9 @@ window.onload = function exampleFunction() {
     startQuiz()
 }
 
-let questions = [
-    {
-        id: 1,
-        question: 'Wat is het favoriete dier van Cornell?',
-        answer: 'Kat',
-        options: ['Marmot', 'Beest', 'Mens', 'Kat'],
-        answered: false
-    }, {
-        id: 2,
-        question: 'Wat is het favoriete eten van Cornell?',
-        answer: 'Vlees',
-        options: ['Vlees', 'Groenten', 'Blegh', 'Dier'],
-        answered: false
-    }
-];
+// Get name of html file, use it as localstorage key
+let data = JSON.parse(localStorage.getItem(location.href.split("/").slice(-1)[0]));
+let questions = data.questions;
 
 /** HTML elements **/
 let questionElement = document.getElementById('question');
@@ -26,7 +14,6 @@ let answerFields = [
     document.getElementById('answerThree'),
     document.getElementById('answerFour')
 ];
-
 let nextQuestionButton = document.getElementById('nextQuestionButton');
 let nextPersonButton = document.getElementById('nextPersonButton');
 
@@ -76,6 +63,7 @@ function checkAnswer(clickedAnswerElement) {
         return
     }
     currentQuestion.answered = true;
+    answeredQuestions.push(currentQuestion.id);
 
     clickedAnswerElement.classList.remove('bg-slate-300', 'text-black', 'hover:bg-slate-600', 'hover:text-white', 'transition');
 
@@ -98,7 +86,11 @@ function checkAnswer(clickedAnswerElement) {
     currentQuestionCorrectButton.classList.add('bg-green-700', 'text-white');
 
     // Show button to next question
-    setNextQuestionButton();
+    if (answeredQuestions.length === questions.length) {
+        enableNextPersonButton()
+    } else {
+        setNextQuestionButton();
+    }
 }
 
 function setNextQuestionButton(disable = false) {
@@ -119,5 +111,9 @@ function setNextQuestionButton(disable = false) {
 function resetAnswerButton(button) {
     button.classList.remove('bg-red-700', 'bg-green-700', 'text-white');
     button.classList.add('bg-slate-300', 'text-black', 'hover:bg-slate-600', 'hover:text-white', 'transition');
+}
+
+function enableNextPersonButton() {
+    nextPersonButton.classList.remove('hidden');
 }
 
