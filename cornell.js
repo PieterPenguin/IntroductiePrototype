@@ -27,6 +27,9 @@ let answerFields = [
     document.getElementById('answerFour')
 ];
 
+let nextQuestionButton = document.getElementById('nextQuestionButton');
+let nextPersonButton = document.getElementById('nextPersonButton');
+
 function startQuiz() {
     initializeQuestion();
 }
@@ -39,8 +42,10 @@ function initializeQuestion() {
 
     if (question.answered) {
         initializeQuestion()
+        return;
     }
 
+    setNextQuestionButton(true);
     currentQuestion = question;
     setQuestion();
 }
@@ -52,6 +57,8 @@ function setQuestion() {
     questionElement.innerText = currentQuestion.question;
 
     for ( const [i, element] of answerFields.entries()) {
+        resetAnswerButton(element);
+
         let currentOption = currentQuestion.options[i];
 
         // Set the correct answered button to global variable
@@ -90,8 +97,27 @@ function checkAnswer(clickedAnswerElement) {
     currentQuestionCorrectButton.classList.remove('bg-slate-300', 'text-black', 'hover:bg-slate-600', 'hover:text-white', 'transition');
     currentQuestionCorrectButton.classList.add('bg-green-700', 'text-white');
 
-    // Maybe add a soundbite for added feedback?
-
     // Show button to next question
+    setNextQuestionButton();
+}
+
+function setNextQuestionButton(disable = false) {
+    if (disable) {
+        nextQuestionButton.classList.remove('hover:bg-blue-200',  'bg-blue-100', 'text-blue-800');
+        nextQuestionButton.classList.add('text-white', 'bg-gray-200',  'text-gray-400');
+
+        nextQuestionButton.disabled = true;
+    } else {
+        nextQuestionButton.classList.remove('text-white', 'bg-gray-200',  'text-gray-400');
+        nextQuestionButton.classList.add('hover:bg-blue-200',  'bg-blue-100', 'text-blue-800');
+
+        nextQuestionButton.disabled = false;
+    }
+}
+
+
+function resetAnswerButton(button) {
+    button.classList.remove('bg-red-700', 'bg-green-700', 'text-white');
+    button.classList.add('bg-slate-300', 'text-black', 'hover:bg-slate-600', 'hover:text-white', 'transition');
 }
 
