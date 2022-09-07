@@ -63,6 +63,7 @@ function setQuestion() {
     }
 }
 
+let soundbite = null;
 function checkAnswer(clickedAnswerElement) {
     if (currentQuestion.answered) {
         return
@@ -73,7 +74,17 @@ function checkAnswer(clickedAnswerElement) {
 
     if (clickedAnswerElement.innerText !== currentQuestion.answer) {
         clickedAnswerElement.classList.add('bg-red-700', 'text-white');
+
+        if (Math.floor(Math.random() * 100) > 90) {
+            soundbite = new Audio('/soundbites/wrong-easter-egg.mp3');
+        } else {
+            soundbite = new Audio('/soundbites/wrong.mp3');
+        }
+    } else {
+        soundbite = new Audio('/soundbites/correct.mp3');
     }
+
+    soundbite.play();
 
     // Correct answer to green
     currentQuestionCorrectButton.classList.remove('bg-slate-300', 'text-black', 'hover:bg-slate-600', 'hover:text-white', 'transition');
