@@ -1,21 +1,21 @@
 export function rick() {
     return {
-        name: 'Jimme van der Meer',
-        text: "Houdt van ananas op z'n pizza",
-        image: 'jimme.jpg',
+        name: 'Rick Dubbeld',
+        text: "Een leuke man met een plan",
+        image: 'rick.jpg',
         questions: [
             {
                 id: 1,
-                question: 'Wat is de favoriete serie van Jimme?',
-                answer: 'Arcane',
-                options: ['Arcane', 'Easy', "Queen's Gambit", 'The Witcher'],
+                question: 'Hoe lang is Rick bezig geweest met het MBO?',
+                answer: '2',
+                options: ['2', '3', "4", '5'],
                 answered: false
             },
             {
                 id: 2,
-                question: 'Wat is het favoriete bier van Jimme?',
-                answer: 'Jupiler',
-                options: ['Heineken', 'Jupiler', 'Hertog Jan', ' Sapporo Yebisu Beer'],
+                question: 'Hoeveel zussen heeft Rick?',
+                answer: '2',
+                options: ['2', '1', '0', ' 3 Stief zusjes'],
                 answered: false
             }
         ]
