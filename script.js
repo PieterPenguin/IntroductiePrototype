@@ -3,6 +3,7 @@ window.onload = function exampleFunction() {
 }
 
 // Get name of html file, use it as localstorage key
+console.log(location.href.split("/").slice(-1)[0]);
 let data = JSON.parse(localStorage.getItem(location.href.split("/").slice(-1)[0]));
 let questions = data.questions;
 

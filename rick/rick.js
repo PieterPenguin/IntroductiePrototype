@@ -1,4 +1,4 @@
-export function jimme() {
+export function rick() {
     return {
         name: 'Jimme van der Meer',
         text: "Houdt van ananas op z'n pizza",

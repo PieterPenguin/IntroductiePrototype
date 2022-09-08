@@ -8,14 +8,14 @@ export function cornell() {
         id: 1,
         question: 'Wat is het favoriete dier van Cornell?',
         answer: 'Kat',
-        options: ['Marmot', 'Beest', 'Mens', 'Kat'],
+        options: ['Marmot', 'Breedvoorhoofdkrokodil', 'Mens', 'Kat'],
         answered: false
       },
       {
         id: 2,
-        question: 'Wat is het favoriete eten van Cornell?',
-        answer: 'Vlees',
-        options: ['Vlees', 'Groenten', 'Blegh', 'Dier'],
+        question: 'In hoeveel jaar heeft Cornell zijn MBO gedaan?',
+        answer: '3',
+        options: ['3', '5', '4', '2'],
         answered: false
       }
     ]
