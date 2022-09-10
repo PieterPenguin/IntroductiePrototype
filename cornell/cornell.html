@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Random BS</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="from-white to-gray-200 bg-gradient-to-r">
+    <div>
+        <div class="mx-auto max-w-7xl py-12 px-4 sm:px-3 lg:px-4 lg:py-12">
+            <div class="space-y-2">
+                <ul role="list" class="space-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8">
+                    <li>
+                        <div class="space-y-4">
+                            <div class="aspect-w-3 aspect-h-2 max-h-[350px]">
+                                <img alt=""
+                                     class="rounded-lg object-cover shadow-xl mx-auto max-h-[250px] max-w-[250] md:max-h-[350px] md:max-w-[350]"
+                                     src="../img/cornell.jpg"
+                                >
+                            </div>
+
+                            <div class="space-y-2">
+                                <div class="space-y-1 font-medium leading-6">
+                                    <h3 class="text-center text-xl text-blue-800">Cornell van der Straaten</h3>
+                                    <p class="text-md text-gray-500 text-center">
+                                        Een malle man zonder plan
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="mx-auto max-w-7xl px-4 sm:px-3 lg:px-4">
+        <div id="questionArea">
+            <h2 class="text-lg font-bold tracking-tight text-center text-blue-800" id="question">Vraag</h2>
+            <div class="flex flex-col md:flex-row space-y-5 md:space-y-0 space-x-0 md:space-x-5 justify-center mt-6">
+                <button onclick="checkAnswer(this)" class="py-3 px-6 bg-slate-300 text-black hover:bg-slate-600 hover:text-white transition" id="answerOne">Answer one</button>
+                <button onclick="checkAnswer(this)" class="py-3 px-6 bg-slate-300 text-black hover:bg-slate-600 hover:text-white transition" id="answerTwo">Answer two</button>
+                <button onclick="checkAnswer(this)" class="py-3 px-6 bg-slate-300 text-black hover:bg-slate-600 hover:text-white transition" id="answerThree">Answer three</button>
+                <button onclick="checkAnswer(this)" class="py-3 px-6 bg-slate-300 text-black hover:bg-slate-600 hover:text-white transition" id="answerFour">Answer four</button>
+            </div>
+        </div>
+        <div class="flex justify-center flex-col max-w-lg mx-auto mt-6">
+            <button type="button" id="nextQuestionButton" onclick="initializeQuestion()" disabled class="inline-flex justify-center items-center text-white bg-gray-200 text-gray-400 rounded-md border border-transparent px-3 py-2 text-sm font-medium leading-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Volgende vraag</button>
+            <a href="../ishak/ishak.html" id="nextPersonButton" class="hidden inline-flex mt-3 justify-center items-center rounded-md border border-transparent bg-blue-100 px-3 py-2 text-sm font-medium leading-4 text-blue-800 hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Volgende in de squad</a>
+        </div>
+    </div>
+
+    <script src="../import.js" type="module"></script>
+    <script src="../script.js" ></script>
+</body>
+</html>
